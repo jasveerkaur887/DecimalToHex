@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Decimal To Hexadecimal Conversion</h2>
+
+
+<p id="demo"></p>
+
+<script>
+    function convertToHex(valueString) {
+if(valueString == 10) {
+    	valueString = 'A'
+    } else if (valueString == 11) {
+    	valueString = 'B'
+    } else if (valueString == 12) {
+    	valueString = 'C'
+    } else if (valueString == 13) {
+       valueString = 'D'
+    } else if (valueString == 14) {
+    	valueString = 'E'
+    } else if (valueString == 15) {
+    	valueString = 'F'
+    } else {
+    	valueString = valueString
+    }
+    return valueString;
+}
+
+
+function reverseString(str) {
+
+    // empty string
+    let newString = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
+}
+
+function rgb(p1,p2,p3) {
+console.log("Hi");
+	var string1 = "", string2="", string3="";
+	while(p1%16 <16) {
+    result = convertToHex(p1%16);
+    string1 = string1.concat(result);
+    p1 = Math.floor(p1/16);
+    if(p1<16) {
+     result = convertToHex(p1);
+    string1 = string1.concat(result);
+    string1 = reverseString(string1);
+    while(p2%16 <16) {
+    
+        result = convertToHex(p2%16);
+        string2 = string2.concat(result);
+        p2 = Math.floor(p2/16);
+    
+        if(p2<16) {
+        result = convertToHex(p2);
+        string2 = string2.concat(result);
+        string2 = reverseString(string2);
+        while(p3%16 <16) {
+        result = convertToHex(p3%16);
+        string3 = string3.concat(result);
+        p3 = Math.floor(p3/16);
+        if(p3<16) {
+            result = convertToHex(p3);
+            string3 = string3.concat(result);
+            string3 = reverseString(string3);
+            break;
+        }
+     }
+    break;
+    }
+    } 
+    break;
+    }
+  }
+  return string1 + string2 + string3;
+}
+
+document.getElementById("demo").innerHTML = rgb(148, 0,211);
+</script>
+
+</body>
+</html>
